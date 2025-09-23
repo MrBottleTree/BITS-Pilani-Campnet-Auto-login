@@ -86,3 +86,7 @@
 2025-09-23 23:36:07,110 INFO Login attempt reported success
 2025-09-23 23:38:38,012 WARNING Connectivity probe indicates logout (html portal content); attempting login
 2025-09-23 23:38:38,388 INFO Login attempt reported success
+2025-09-23 23:40:12,537 INFO Watcher started at 2025-09-23T23:40:12.537161
+2025-09-24 01:29:33,337 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 01:29:33,383 WARNING Login attempt did not confirm success
+2025-09-24 01:29:33,383 WARNING Login attempt failed; retrying in 10s
