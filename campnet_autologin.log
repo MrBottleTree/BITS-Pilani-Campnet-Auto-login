@@ -1,0 +1,42 @@
+2025-09-23 21:06:23,265 INFO Watcher started at 2025-09-23T21:06:23.265392
+2025-09-23 21:06:24,301 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:06:24,605 INFO Login attempt reported success
+2025-09-23 21:06:59,819 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:07:00,120 INFO Login attempt reported success
+2025-09-23 21:07:35,396 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:07:35,713 INFO Login attempt reported success
+2025-09-23 21:08:51,460 INFO Watcher started at 2025-09-23T21:08:51.460327
+2025-09-23 21:08:51,496 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:08:51,815 INFO Login attempt reported success
+2025-09-23 21:11:22,667 INFO Watcher started at 2025-09-23T21:11:22.667462
+2025-09-23 21:11:22,716 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:11:23,046 INFO Login attempt reported success
+2025-09-23 21:15:54,547 INFO Watcher started at 2025-09-23T21:15:54.547823
+2025-09-23 21:16:14,673 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:16:14,951 INFO Login attempt reported success
+2025-09-23 21:16:40,081 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:16:40,365 INFO Login attempt reported success
+2025-09-23 21:19:57,803 INFO Watcher started at 2025-09-23T21:19:57.803685
+2025-09-23 21:21:47,583 INFO Force refreshing session after 300s
+2025-09-23 21:21:47,613 INFO Login attempt reported success
+2025-09-23 21:24:08,674 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-23 21:24:08,675 WARNING Login attempt did not confirm success
+2025-09-23 21:24:08,675 WARNING Login attempt failed; retrying in 10s
+2025-09-23 21:24:09,282 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-23 21:24:09,283 WARNING Login attempt did not confirm success
+2025-09-23 21:24:09,283 WARNING Login attempt failed; retrying in 10s
+2025-09-23 21:26:49,783 INFO Force refreshing session after 300s
+2025-09-23 21:26:49,828 INFO Login attempt reported success
+2025-09-23 21:31:52,570 INFO Force refreshing session after 300s
+2025-09-23 21:31:52,619 INFO Login attempt reported success
+2025-09-23 21:33:42,865 INFO Watcher started at 2025-09-23T21:33:42.865901
+2025-09-23 21:34:20,994 INFO Watcher started at 2025-09-23T21:34:20.994476
+2025-09-23 21:36:54,795 INFO Force refreshing session after 300s
+2025-09-23 21:36:54,823 INFO Login attempt reported success
+2025-09-23 21:37:00,447 INFO Watcher started at 2025-09-23T21:37:00.447648
+2025-09-23 21:40:47,760 INFO Watcher started at 2025-09-23T21:40:47.760417
+2025-09-23 21:40:53,976 INFO Watcher started at 2025-09-23T21:40:53.976524
+2025-09-23 21:40:55,485 INFO Watcher started at 2025-09-23T21:40:55.485947
+2025-09-23 21:40:56,134 INFO Watcher started at 2025-09-23T21:40:56.134646
+2025-09-23 21:40:56,480 INFO Watcher started at 2025-09-23T21:40:56.480418
+2025-09-23 21:41:13,450 INFO Watcher started at 2025-09-23T21:41:13.450803
