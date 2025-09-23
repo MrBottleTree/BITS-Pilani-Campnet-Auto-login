@@ -1,9 +1,11 @@
 make a .env file
 here is an example of how it should look like
-uname=<your campnet username>
-pwd=<password>
 
-make sure you dont have ' ' character anywhere, or quotes.
+uname=your campnet username
+
+pwd=password
+
+make sure you dont have the space ' ' character anywhere, or quotes.
 
 first run the campnet_autologin.py python file to see whats missing to install them.
 then run the setup_autologin.bat by "./setup_autologin.bat"
