@@ -43,3 +43,46 @@
 2025-09-23 21:43:37,904 INFO Watcher started at 2025-09-23T21:43:37.904288
 2025-09-23 21:43:37,955 WARNING Connectivity probe indicates logout (html portal content); attempting login
 2025-09-23 21:43:38,265 INFO Login attempt reported success
+2025-09-23 21:46:54,683 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 21:46:55,033 INFO Login attempt reported success
+2025-09-23 21:52:02,853 INFO Force refreshing session after 300s
+2025-09-23 21:52:02,900 INFO Login attempt reported success
+2025-09-23 21:57:06,180 INFO Force refreshing session after 300s
+2025-09-23 21:57:06,224 INFO Login attempt reported success
+2025-09-23 22:02:08,471 INFO Force refreshing session after 300s
+2025-09-23 22:02:08,499 INFO Login attempt reported success
+2025-09-23 22:07:10,647 INFO Force refreshing session after 300s
+2025-09-23 22:07:10,705 INFO Login attempt reported success
+2025-09-23 22:12:12,901 INFO Force refreshing session after 300s
+2025-09-23 22:12:12,970 INFO Login attempt reported success
+2025-09-23 22:17:15,758 INFO Force refreshing session after 300s
+2025-09-23 22:17:15,806 INFO Login attempt reported success
+2025-09-23 22:22:18,370 INFO Force refreshing session after 300s
+2025-09-23 22:22:18,402 INFO Login attempt reported success
+2025-09-23 22:27:21,884 INFO Force refreshing session after 300s
+2025-09-23 22:27:22,034 INFO Login attempt reported success
+2025-09-23 22:32:24,555 INFO Force refreshing session after 300s
+2025-09-23 22:32:24,586 INFO Login attempt reported success
+2025-09-23 22:37:26,586 INFO Force refreshing session after 300s
+2025-09-23 22:37:26,660 INFO Login attempt reported success
+2025-09-23 22:42:29,042 INFO Force refreshing session after 300s
+2025-09-23 22:42:29,105 INFO Login attempt reported success
+2025-09-23 22:48:23,364 INFO Watcher started at 2025-09-23T22:48:23.364725
+2025-09-23 22:51:56,018 INFO Watcher started at 2025-09-23T22:51:56.018490
+2025-09-23 23:05:28,188 INFO Watcher started at 2025-09-23T23:05:28.188850
+2025-09-23 23:05:48,432 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 23:05:49,067 INFO Login attempt reported success
+2025-09-23 23:10:55,959 INFO Force refreshing session after 300s
+2025-09-23 23:10:56,009 INFO Login attempt reported success
+2025-09-23 23:15:57,711 INFO Force refreshing session after 300s
+2025-09-23 23:15:57,741 INFO Login attempt reported success
+2025-09-23 23:20:59,584 INFO Force refreshing session after 300s
+2025-09-23 23:20:59,609 INFO Login attempt reported success
+2025-09-23 23:26:01,484 INFO Force refreshing session after 300s
+2025-09-23 23:26:01,542 INFO Login attempt reported success
+2025-09-23 23:31:03,598 INFO Force refreshing session after 300s
+2025-09-23 23:31:03,653 INFO Login attempt reported success
+2025-09-23 23:36:06,953 INFO Force refreshing session after 300s
+2025-09-23 23:36:07,110 INFO Login attempt reported success
+2025-09-23 23:38:38,012 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-23 23:38:38,388 INFO Login attempt reported success

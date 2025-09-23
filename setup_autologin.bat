@@ -5,6 +5,7 @@ set "SCRIPT_DIR=%~dp0"
 set "SCRIPT_PATH=%SCRIPT_DIR%campnet_autologin.py"
 set "RUN_KEY=HKCU\Software\Microsoft\Windows\CurrentVersion\Run"
 set "RUN_VALUE=CampnetAutoLogin"
+set "LEGACY_VBS=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\CampnetAutoLogin.vbs"
 
 if not exist "%SCRIPT_PATH%" (
     echo [campnet-autologin] campnet_autologin.py not found next to this script.
@@ -18,7 +19,16 @@ if /I "%~1"=="--remove" (
     ) else (
         echo [campnet-autologin] Autostart entry removed from registry.
     )
+    if exist "%LEGACY_VBS%" (
+        del "%LEGACY_VBS%"
+        echo [campnet-autologin] Removed legacy startup script: %LEGACY_VBS%
+    )
     exit /b 0
+)
+
+if exist "%LEGACY_VBS%" (
+    del "%LEGACY_VBS%"
+    echo [campnet-autologin] Deleted legacy startup script at %LEGACY_VBS%.
 )
 
 call :find_python || exit /b 1
