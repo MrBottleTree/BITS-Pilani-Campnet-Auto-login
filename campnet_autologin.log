@@ -90,3 +90,34 @@
 2025-09-24 01:29:33,337 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
 2025-09-24 01:29:33,383 WARNING Login attempt did not confirm success
 2025-09-24 01:29:33,383 WARNING Login attempt failed; retrying in 10s
+2025-09-24 04:55:21,574 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 04:55:21,597 WARNING Login attempt did not confirm success
+2025-09-24 04:55:21,597 WARNING Login attempt failed; retrying in 10s
+2025-09-24 11:06:55,244 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 11:06:55,248 WARNING Login attempt did not confirm success
+2025-09-24 11:06:55,248 WARNING Login attempt failed; retrying in 10s
+2025-09-24 11:07:05,263 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-24 11:07:05,630 INFO Login attempt reported success
+2025-09-24 12:36:29,205 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 12:36:29,256 WARNING Login attempt did not confirm success
+2025-09-24 12:36:29,256 WARNING Login attempt failed; retrying in 10s
+2025-09-24 13:12:16,158 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 13:12:16,166 WARNING Login attempt did not confirm success
+2025-09-24 13:12:16,167 WARNING Login attempt failed; retrying in 10s
+2025-09-24 13:12:26,203 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-24 13:12:26,493 INFO Login attempt reported success
+2025-09-24 13:17:33,370 INFO Force refreshing session after 300s
+2025-09-24 13:17:33,401 INFO Login attempt reported success
+2025-09-24 13:22:35,110 INFO Force refreshing session after 300s
+2025-09-24 13:22:35,157 INFO Login attempt reported success
+2025-09-24 14:26:51,824 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 14:26:51,842 WARNING Login attempt did not confirm success
+2025-09-24 14:26:51,842 WARNING Login attempt failed; retrying in 10s
+2025-09-24 16:55:49,502 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 16:55:49,506 WARNING Login attempt did not confirm success
+2025-09-24 16:55:49,506 WARNING Login attempt failed; retrying in 10s
+2025-09-24 16:55:59,568 WARNING Connectivity probe indicates logout (html portal content); attempting login
+2025-09-24 16:56:00,249 INFO Login attempt reported success
+2025-09-24 16:59:24,930 WARNING Connectivity probe indicates logout (all probes inconclusive); attempting login
+2025-09-24 16:59:24,946 WARNING Login attempt did not confirm success
+2025-09-24 16:59:24,946 WARNING Login attempt failed; retrying in 10s

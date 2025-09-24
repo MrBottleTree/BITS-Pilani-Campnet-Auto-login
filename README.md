@@ -1,18 +1,38 @@
-make a .env file
-here is an example of how it should look like
+# Campnet Auto Login
 
-uname=your campnet username
+This project keeps Campnet sessions alive by retrying the captive-portal login whenever connectivity drops. Credentials live in a local `.env` file so the Python scripts can authenticate without manual input.
 
-pwd=password
+## Files
+- `campnet_login.py` – Single login call against the Campnet portal.
+- `campnet_autologin.py` – Background watcher that probes the network and re-logs when needed.
+- `setup_autologin.bat` – Windows helper that starts the watcher immediately and registers it in the Run key.
+- `setup_autologin.sh` – Linux helper that installs a systemd user service for the watcher.
 
-make sure you dont have the space ' ' character anywhere, or quotes.
+## Getting Started (Windows)
+1. Install Python 3 and make sure `python`/`pythonw` are on your `PATH`.
+2. Copy `.env.example` to `.env` (or create `.env`) and fill in `UNAME` and `PWD`.
+3. Double-click `setup_autologin.bat` (or run it from a shell). It will
+   - locate `pythonw.exe` (falls back to `python.exe`),
+   - add `CampnetAutoLogin` to `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`, and
+   - launch the watcher immediately.
 
-first run the campnet_autologin.py python file to see whats missing to install them.
-then run the setup_autologin.bat by "./setup_autologin.bat"
-it will now keep you logged into bits wifi everytime!
+Windows will now launch the watcher at every sign-in, and it will retry the Campnet login whenever the portal drops your session. The process sleeps between checks, so it stays lightweight (roughly a single HTTP probe every 10 seconds).
 
-the plus point here is, this works even when you restart windows!!
+## Getting Started (Ubuntu/Linux)
+1. Ensure Python 3 is available on `PATH`.
+2. Copy `.env.example` to `.env` and fill in your credentials.
+3. Run `bash setup_autologin.sh`. It will
+   - (optionally) install/upgrade `requests` and `python-dotenv` with pip,
+   - write `~/.config/systemd/user/campnet_autologin.service`, and
+   - `systemctl --user enable --now campnet_autologin.service`.
 
-but if you want it to STOP working, run "./setup_autologin.bat --remove"
+If your desktop logs out and stops user services, enable lingering with `loginctl enable-linger $USER` so the watcher survives reboots.
 
-someone pls make it work on android! :)
+## Removing Autostart
+- **Windows:** `setup_autologin.bat --remove`
+- **Linux:** `bash setup_autologin.sh --remove`
+
+## Notes
+- Keep `.env` out of version control; commit a `.env.example` file with placeholder values instead.
+- The scripts disable SSL verification because the captive portal uses a self-signed certificate. Use the code only on networks you trust.
+- Logs live at `campnet_autologin.log` next to the scripts if you need to troubleshoot.
