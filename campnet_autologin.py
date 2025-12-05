@@ -16,10 +16,10 @@ CHECK_URLS = (
     "http://clients3.google.com/generate_204",
     "http://connectivitycheck.gstatic.com/generate_204",
 )
-CHECK_INTERVAL_SECONDS = 10
-RETRY_INTERVAL_SECONDS = 10
-POST_LOGIN_VERIFY_DELAY_SECONDS = 5
-FORCE_LOGIN_INTERVAL_SECONDS = 300
+CHECK_INTERVAL_SECONDS = 5
+RETRY_INTERVAL_SECONDS = 5
+POST_LOGIN_VERIFY_DELAY_SECONDS = 3
+FORCE_LOGIN_INTERVAL_SECONDS = 240
 PROBE_HEADERS = {
     "Cache-Control": "no-cache",
     "Pragma": "no-cache",
@@ -109,8 +109,19 @@ def attempt_login() -> bool:
 def main() -> None:
     logger.info("Watcher started at %s", datetime.datetime.now().isoformat())
     last_success = 0.0
+    startup_attempt_pending = True
 
     while True:
+        if startup_attempt_pending:
+            logger.info("Performing startup login attempt")
+            if attempt_login():
+                last_success = time.time()
+                time.sleep(POST_LOGIN_VERIFY_DELAY_SECONDS)
+            else:
+                time.sleep(RETRY_INTERVAL_SECONDS)
+            startup_attempt_pending = False
+            continue
+
         logged_in, reason = is_logged_in()
         if logged_in:
             if last_success and time.time() - last_success >= FORCE_LOGIN_INTERVAL_SECONDS:
