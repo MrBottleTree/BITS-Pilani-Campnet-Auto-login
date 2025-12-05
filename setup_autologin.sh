@@ -18,7 +18,7 @@ ensure_python() {
 }
 
 install_deps() {
-    if [[ -n "$SKIP_PIP" ]]; then
+    if [[ -n "${SKIP_PIP:-}" ]]; then
         return
     fi
     log "Installing/upgrading required Python packages (requests, python-dotenv)"
