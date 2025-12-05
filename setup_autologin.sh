@@ -10,6 +10,15 @@ PYTHON_BIN="${PYTHON_BIN:-"$(command -v python3 || true)"}"
 
 log() { printf '[campnet-autologin] %s\n' "$*"; }
 
+detect_missing_modules() {
+    "$PYTHON_BIN" - <<'PY'
+import importlib.util
+mods = ["requests", "dotenv"]
+missing = [m for m in mods if importlib.util.find_spec(m) is None]
+print(" ".join(missing))
+PY
+}
+
 ensure_python() {
     if [[ -z "$PYTHON_BIN" ]]; then
         log "python3 not found on PATH. Set PYTHON_BIN=/path/to/python and rerun."
@@ -19,10 +28,25 @@ ensure_python() {
 
 install_deps() {
     if [[ -n "${SKIP_PIP:-}" ]]; then
+        log "SKIP_PIP set; assuming dependencies are installed"
         return
     fi
-    log "Installing/upgrading required Python packages (requests, python-dotenv)"
-    "$PYTHON_BIN" -m pip install --user --upgrade requests python-dotenv || log "pip install failed; continuing"
+    missing_modules="$(detect_missing_modules)"
+    if [[ -z "$missing_modules" ]]; then
+        log "Dependencies already present; skipping pip install"
+        return
+    fi
+
+    log "Installing/upgrading required Python packages ($missing_modules)"
+    err_log="$(mktemp)"
+    if ! "$PYTHON_BIN" -m pip install --user --upgrade $missing_modules 2>"$err_log"; then
+        if grep -q "externally-managed-environment" "$err_log"; then
+            log "pip refused (externally managed env). Install via: sudo apt install python3-requests python3-dotenv"
+        else
+            log "pip install failed; see $err_log"
+        fi
+    fi
+    rm -f "$err_log"
 }
 
 enable_linger() {
