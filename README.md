@@ -25,7 +25,8 @@ Windows will now launch the watcher at every sign-in, and it will retry the Camp
 2. Copy `credentials.json.example` to `credentials.json` and fill in your credentials. You can list multiple entries for automatic failover; `.env` with `UNAME`/`PWD` still works if you only need one login.
 3. Run `bash setup_autologin.sh`. It will
    - (optionally) install/upgrade `requests` and `python-dotenv` with pip,
-   - write `~/.config/systemd/user/campnet_autologin.service`, and
+   - write `~/.config/systemd/user/campnet_autologin.service`,
+   - request lingering via `loginctl enable-linger $USER` when available so it also runs after reboot, and
    - `systemctl --user enable --now campnet_autologin.service`.
 
 ## Credentials
@@ -33,7 +34,7 @@ Windows will now launch the watcher at every sign-in, and it will retry the Camp
 - Optional: set `CREDENTIALS_FILE=/path/to/other.json` in your environment or `.env` to point at a different file.
 - Legacy: `.env` with `UNAME` and `PWD` still works for a single credential if no JSON file is found.
 
-If your desktop logs out and stops user services, enable lingering with `loginctl enable-linger $USER` so the watcher survives reboots.
+The setup script requests lingering automatically; if user services still stop on logout, rerun `loginctl enable-linger $USER`.
 
 ## Removing Autostart
 - **Windows:** `setup_autologin.bat --remove`

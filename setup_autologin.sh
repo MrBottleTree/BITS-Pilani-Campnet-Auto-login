@@ -25,12 +25,30 @@ install_deps() {
     "$PYTHON_BIN" -m pip install --user --upgrade requests python-dotenv || log "pip install failed; continuing"
 }
 
+enable_linger() {
+    if ! command -v loginctl >/dev/null 2>&1; then
+        log "loginctl not found; skipping linger enablement (user services may stop on logout)"
+        return
+    fi
+
+    if loginctl show-user "$USER" 2>/dev/null | grep -q "Linger=yes"; then
+        log "User lingering already enabled for $USER"
+        return
+    fi
+
+    if loginctl enable-linger "$USER"; then
+        log "Enabled lingering for $USER (user services will start at boot and survive logout)"
+    else
+        log "Could not enable lingering for $USER; user services may stop on logout"
+    fi
+}
+
 write_service() {
     mkdir -p "$SERVICE_DIR"
     cat >"$SERVICE_PATH" <<SERVICE
 [Unit]
 Description=Campnet Autologin
-After=network-online.target
+After=default.target
 Wants=network-online.target
 
 [Service]
@@ -38,7 +56,7 @@ Type=simple
 WorkingDirectory=$SCRIPT_DIR
 ExecStart=$PYTHON_BIN $SCRIPT_PATH
 Restart=always
-RestartSec=10
+RestartSec=3
 
 [Install]
 WantedBy=default.target
@@ -73,8 +91,9 @@ fi
 
 ensure_python
 install_deps
+enable_linger
 write_service
 reload_and_enable
 
 log "campnet_autologin.py will now run in background and on login."
-log "If you log out and systemd user services stop, enable lingering via: loginctl enable-linger $USER"
+log "If user services still stop on logout, run: loginctl enable-linger $USER"
