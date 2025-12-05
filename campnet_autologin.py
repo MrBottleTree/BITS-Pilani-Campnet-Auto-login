@@ -7,7 +7,7 @@ from pathlib import Path
 import requests
 from requests import RequestException
 
-from campnet_login import login
+from campnet_login import Credential, load_credentials, login_with_credential
 
 BASE_DIR = Path(__file__).resolve().parent
 LOG_PATH = BASE_DIR / "campnet_autologin.log"
@@ -84,12 +84,26 @@ def is_logged_in() -> tuple[bool, str]:
 
 
 def attempt_login() -> bool:
-    success = login()
-    if success:
-        logger.info("Login attempt reported success")
-    else:
-        logger.warning("Login attempt did not confirm success")
-    return success
+    try:
+        credentials = load_credentials()
+    except Exception as exc:  # pylint: disable=broad-except
+        logger.error("Could not load credentials: %s", exc)
+        return False
+
+    if not credentials:
+        logger.error("No credentials found; cannot attempt login")
+        return False
+
+    for credential in credentials:
+        logger.info("Attempting login for %s", credential.username)
+        success, reason = login_with_credential(credential)
+        if success:
+            logger.info("Login succeeded for %s (%s)", credential.username, reason)
+            return True
+        logger.warning("Login failed for %s (%s); trying next credential", credential.username, reason)
+
+    logger.error("All configured credentials failed")
+    return False
 
 
 def main() -> None:
@@ -118,4 +132,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
